@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>MozMusic</title>
 
   <style>
@@ -105,15 +104,9 @@
       font-size: 14px;
     }
 
-    .play {
-      margin-top: 12px;
+    audio {
       width: 100%;
-      padding: 10px;
-      border: none;
-      border-radius: 20px;
-      background: #ffcc00;
-      color: #000;
-      font-weight: bold;
+      margin-top: 15px;
     }
 
     footer {
@@ -145,20 +138,25 @@
 
       <div class="card">
         <div class="cover">🎧</div>
-        <source src="kiler.%20Mp3" type="audio/mpeg">
-      
- <div class="card">
+        <h3>Kiler</h3>
+        <p>Remigio JR</p>
+
+        <audio controls>
+          <source src="kiler.%20Mp3" type="audio/mpeg">
+          O teu navegador não consegue reproduzir este áudio.
+        </audio>
+      </div>
+
+      <div class="card">
         <div class="cover">🎶</div>
         <h3>Saudade</h3>
         <p>Remigio JR</p>
-        <button class="play" onclick="tocar()">▶ Ouvir</button>
       </div>
 
       <div class="card">
         <div class="cover">🔥</div>
         <h3>Poder do Metical</h3>
         <p>Anicleto Anelce & Regino</p>
-        <button class="play" onclick="tocar()">▶ Ouvir</button>
       </div>
 
     </div>
@@ -194,12 +192,6 @@
     <p>© 2026 MozMusic</p>
     <p>Promovendo a música de Moçambique 🇲🇿</p>
   </footer>
-
-  <script>
-    function tocar() {
-      alert("A música será adicionada em breve à MozMusic.");
-    }
-  </script>
 
 </body>
 </html>
