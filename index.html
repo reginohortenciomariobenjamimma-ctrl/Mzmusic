@@ -1,164 +1,208 @@
 <!DOCTYPE html>
-<html lang="pt-MZ">
+<html lang="pt">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MozMusic — Música Moçambicana</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
-}
+  <title>MozMusic</title>
 
-body{
-  font-family:Arial,sans-serif;
-  background:#0b0f14;
-  color:white;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
 
-header{
-  position:sticky;
-  top:0;
-  z-index:10;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:15px 5%;
-  background:#111820;
-  border-bottom:1px solid #26313c;
-}
+    body {
+      background: #0d0d0d;
+      color: white;
+    }
 
-.logo{
-  font-size:25px;
-  font-weight:bold;
-  color:#19d47b;
-}
+    header {
+      background: #111;
+      padding: 18px;
+      text-align: center;
+      border-bottom: 1px solid #292929;
+    }
 
-.logo span{
-  color:white;
-}
+    .logo {
+      font-size: 30px;
+      font-weight: bold;
+      color: #00d4ff;
+    }
 
-nav{
-  display:flex;
-  gap:15px;
-  flex-wrap:wrap;
-}
+    .logo span {
+      color: #ffcc00;
+    }
 
-nav a{
-  color:#ddd;
-  text-decoration:none;
-  font-size:14px;
-}
+    .hero {
+      padding: 45px 20px;
+      text-align: center;
+      background: linear-gradient(135deg, #111827, #050505);
+    }
 
-nav a:hover{
-  color:#19d47b;
-}
+    .hero h1 {
+      font-size: 38px;
+      margin-bottom: 15px;
+    }
 
-.hero{
-  text-align:center;
-  padding:65px 20px 45px;
-  max-width:900px;
-  margin:auto;
-}
+    .hero p {
+      color: #bbb;
+      font-size: 17px;
+      margin-bottom: 25px;
+    }
 
-.badge{
-  display:inline-block;
-  background:#15231d;
-  border:1px solid #28553f;
-  color:#7ee7ae;
-  padding:7px 12px;
-  border-radius:30px;
-  font-size:13px;
-  margin-bottom:18px;
-}
+    .btn {
+      display: inline-block;
+      padding: 13px 25px;
+      background: #00d4ff;
+      color: #000;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+    }
 
-.hero h1{
-  font-size:clamp(30px,7vw,52px);
-  line-height:1.1;
-}
+    .section {
+      padding: 30px 18px;
+    }
 
-.hero h1 span{
-  color:#19d47b;
-}
+    .section h2 {
+      margin-bottom: 20px;
+      font-size: 25px;
+    }
 
-.hero p{
-  color:#aeb7c2;
-  margin-top:15px;
-}
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
 
-.buttons{
-  display:flex;
-  justify-content:center;
-  gap:12px;
-  flex-wrap:wrap;
-  margin-top:25px;
-}
+    .card {
+      background: #181818;
+      border-radius: 12px;
+      padding: 18px;
+      border: 1px solid #292929;
+    }
 
-.btn{
-  border:0;
-  border-radius:25px;
-  padding:12px 20px;
-  font-weight:bold;
-  text-decoration:none;
-  cursor:pointer;
-}
+    .cover {
+      height: 150px;
+      background: linear-gradient(135deg, #00d4ff, #7b2cff);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 35px;
+      margin-bottom: 12px;
+    }
 
-.primary{
-  background:#19d47b;
-  color:#06110b;
-}
+    .card h3 {
+      margin-bottom: 7px;
+    }
 
-.secondary{
-  background:#202a34;
-  color:white;
-}
+    .card p {
+      color: #aaa;
+      font-size: 14px;
+    }
 
-.section{
-  max-width:1050px;
-  margin:auto;
-  padding:25px 20px;
-}
+    .play {
+      margin-top: 12px;
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 20px;
+      background: #ffcc00;
+      color: #000;
+      font-weight: bold;
+    }
 
-.section-title{
-  margin-bottom:18px;
-  font-size:22px;
-}
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      background: #080808;
+      color: #888;
+      margin-top: 20px;
+    }
+  </style>
+</head>
 
-.search{
-  width:100%;
-  padding:14px;
-  margin-bottom:20px;
-  background:#151d26;
-  border:1px solid #303b47;
-  border-radius:10px;
-  color:white;
-  outline:none;
-}
+<body>
 
-.music-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:18px;
-}
+  <header>
+    <div class="logo">Moz<span>Music</span></div>
+  </header>
 
-.card{
-  background:#151d26;
-  border:1px solid #26313c;
-  border-radius:15px;
-  padding:15px;
-}
+  <section class="hero">
+    <h1>Bem-vindo à MozMusic</h1>
+    <p>A tua plataforma de música moçambicana.</p>
+    <a href="#musicas" class="btn">Explorar músicas</a>
+  </section>
 
-.cover{
-  height:190px;
-  border-radius:12px;
-  background:linear-gradient(135deg,#19d47b,#17232d);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:55px;
-  margin-bottom:14px;
-}
+  <section class="section" id="musicas">
+    <h2>🎵 Músicas em destaque</h2>
 
-.card h3{
+    <div class="cards">
+
+      <div class="card">
+        <div class="cover">🎧</div>
+        <h3>Minha História</h3>
+        <p>Remigio JR</p>
+        <button class="play" onclick="tocar()">▶ Ouvir</button>
+      </div>
+
+      <div class="card">
+        <div class="cover">🎶</div>
+        <h3>Saudade</h3>
+        <p>Remigio JR</p>
+        <button class="play" onclick="tocar()">▶ Ouvir</button>
+      </div>
+
+      <div class="card">
+        <div class="cover">🔥</div>
+        <h3>Poder do Metical</h3>
+        <p>Anicleto Anelce & Regino</p>
+        <button class="play" onclick="tocar()">▶ Ouvir</button>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="section">
+    <h2>🇲🇿 Artistas</h2>
+
+    <div class="cards">
+
+      <div class="card">
+        <div class="cover">🎤</div>
+        <h3>Remigio JR</h3>
+        <p>Artista moçambicano</p>
+      </div>
+
+      <div class="card">
+        <div class="cover">🎤</div>
+        <h3>Anicleto Anelce</h3>
+        <p>Artista moçambicano</p>
+      </div>
+
+      <div class="card">
+        <div class="cover">🎤</div>
+        <h3>Regino</h3>
+        <p>Artista moçambicano</p>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 MozMusic</p>
+    <p>Promovendo a música de Moçambique 🇲🇿</p>
+  </footer>
+
+  <script>
+    function tocar() {
+      alert("A música será adicionada em breve à MozMusic.");
+    }
+  </script>
+
+</body>
+</html>
