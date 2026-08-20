@@ -1,443 +1,164 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-MZ">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MozMusic - Plataforma para Artistas Moçambicanos</title>
+<title>MozMusic — Música Moçambicana</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-body {
-  font-family: Arial, sans-serif;
-  background: #0b0f14;
-  color: white;
+body{
+  font-family:Arial,sans-serif;
+  background:#0b0f14;
+  color:white;
 }
 
-header {
-  background: #111820;
-  padding: 16px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  border-bottom: 1px solid #26313c;
+header{
+  position:sticky;
+  top:0;
+  z-index:10;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:15px 5%;
+  background:#111820;
+  border-bottom:1px solid #26313c;
 }
 
-.topbar {
-  max-width: 1100px;
-  margin: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.logo{
+  font-size:25px;
+  font-weight:bold;
+  color:#19d47b;
 }
 
-.logo {
-  font-size: 25px;
-  font-weight: bold;
-  color: #19d47b;
+.logo span{
+  color:white;
 }
 
-.logo span {
-  color: white;
+nav{
+  display:flex;
+  gap:15px;
+  flex-wrap:wrap;
 }
 
-.menu {
-  display: flex;
-  gap: 18px;
+nav a{
+  color:#ddd;
+  text-decoration:none;
+  font-size:14px;
 }
 
-.menu a {
-  color: #ddd;
-  text-decoration: none;
-  font-size: 14px;
+nav a:hover{
+  color:#19d47b;
 }
 
-.menu a:hover {
-  color: #19d47b;
+.hero{
+  text-align:center;
+  padding:65px 20px 45px;
+  max-width:900px;
+  margin:auto;
 }
 
-.hero {
-  max-width: 1100px;
-  margin: auto;
-  padding: 55px 20px 35px;
-  text-align: center;
+.badge{
+  display:inline-block;
+  background:#15231d;
+  border:1px solid #28553f;
+  color:#7ee7ae;
+  padding:7px 12px;
+  border-radius:30px;
+  font-size:13px;
+  margin-bottom:18px;
 }
 
-.hero h1 {
-  font-size: 38px;
-  margin-bottom: 15px;
+.hero h1{
+  font-size:clamp(30px,7vw,52px);
+  line-height:1.1;
 }
 
-.hero h1 span {
-  color: #19d47b;
+.hero h1 span{
+  color:#19d47b;
 }
 
-.hero p {
-  color: #aeb7c2;
-  max-width: 650px;
-  margin: auto;
-  line-height: 1.6;
+.hero p{
+  color:#aeb7c2;
+  margin-top:15px;
 }
 
-.buttons {
-  margin-top: 25px;
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
+.buttons{
+  display:flex;
+  justify-content:center;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-top:25px;
 }
 
-.btn {
-  border: none;
-  padding: 13px 22px;
-  border-radius: 25px;
-  cursor: pointer;
-  font-weight: bold;
-  text-decoration: none;
+.btn{
+  border:0;
+  border-radius:25px;
+  padding:12px 20px;
+  font-weight:bold;
+  text-decoration:none;
+  cursor:pointer;
 }
 
-.primary {
-  background: #19d47b;
-  color: #06110b;
+.primary{
+  background:#19d47b;
+  color:#06110b;
 }
 
-.secondary {
-  background: #202a34;
-  color: white;
+.secondary{
+  background:#202a34;
+  color:white;
 }
 
-.container {
-  max-width: 1100px;
-  margin: auto;
-  padding: 20px;
+.section{
+  max-width:1050px;
+  margin:auto;
+  padding:25px 20px;
 }
 
-.section-title {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 25px 0 18px;
+.section-title{
+  margin-bottom:18px;
+  font-size:22px;
 }
 
-.section-title h2 {
-  font-size: 22px;
+.search{
+  width:100%;
+  padding:14px;
+  margin-bottom:20px;
+  background:#151d26;
+  border:1px solid #303b47;
+  border-radius:10px;
+  color:white;
+  outline:none;
 }
 
-.section-title a {
-  color: #19d47b;
-  text-decoration: none;
-  font-size: 14px;
+.music-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:18px;
 }
 
-.music-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 18px;
+.card{
+  background:#151d26;
+  border:1px solid #26313c;
+  border-radius:15px;
+  padding:15px;
 }
 
-.card {
-  background: #151d26;
-  border: 1px solid #26313c;
-  border-radius: 14px;
-  overflow: hidden;
-  padding: 15px;
+.cover{
+  height:190px;
+  border-radius:12px;
+  background:linear-gradient(135deg,#19d47b,#17232d);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:55px;
+  margin-bottom:14px;
 }
 
-.cover {
-  height: 180px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, #19d47b, #17232d);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 45px;
-  margin-bottom: 14px;
-}
-
-.card h3 {
-  margin-bottom: 6px;
-}
-
-.card p {
-  color: #9da7b2;
-  font-size: 14px;
-  margin-bottom: 13px;
-}
-
-.play {
-  width: 100%;
-  border: none;
-  background: #19d47b;
-  padding: 11px;
-  border-radius: 8px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.artist-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 15px;
-}
-
-.artist {
-  background: #151d26;
-  border: 1px solid #26313c;
-  border-radius: 12px;
-  padding: 18px;
-  text-align: center;
-}
-
-.artist-photo {
-  width: 80px;
-  height: 80px;
-  margin: auto auto 12px;
-  border-radius: 50%;
-  background: #26313c;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 28px;
-}
-
-.artist p {
-  color: #9da7b2;
-  margin-top: 5px;
-  font-size: 13px;
-}
-
-.upload {
-  margin-top: 35px;
-  background: linear-gradient(135deg, #17241f, #121a20);
-  border: 1px solid #284c3a;
-  border-radius: 16px;
-  padding: 28px;
-  text-align: center;
-}
-
-.upload h2 {
-  margin-bottom: 10px;
-}
-
-.upload p {
-  color: #aeb7c2;
-  margin-bottom: 20px;
-}
-
-.search {
-  margin: 20px 0;
-}
-
-.search input {
-  width: 100%;
-  padding: 15px;
-  border-radius: 10px;
-  border: 1px solid #303b47;
-  background: #151d26;
-  color: white;
-  outline: none;
-}
-
-footer {
-  margin-top: 50px;
-  padding: 30px 20px;
-  text-align: center;
-  background: #111820;
-  color: #8f99a4;
-  border-top: 1px solid #26313c;
-}
-
-footer strong {
-  color: #19d47b;
-}
-
-@media (max-width: 600px) {
-
-  .menu {
-    gap: 10px;
-  }
-
-  .menu a {
-    font-size: 12px;
-  }
-
-  .hero h1 {
-    font-size: 30px;
-  }
-
-  .hero {
-    padding-top: 40px;
-  }
-
-  .cover {
-    height: 160px;
-  }
-}
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="topbar">
-    <div class="logo">Moz<span>Music</span></div>
-
-    <nav class="menu">
-      <a href="#inicio">Início</a>
-      <a href="#musicas">Músicas</a>
-      <a href="#artistas">Artistas</a>
-      <a href="#publicar">Publicar</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero" id="inicio">
-  <h1>Bem-vindo à <span>MozMusic</span></h1>
-
-  <p>
-    A plataforma para descobrir, ouvir e promover
-    artistas e músicas moçambicanas.
-  </p>
-
-  <div class="buttons">
-    <a href="#musicas" class="btn primary">🎵 Ouvir músicas</a>
-    <a href="#publicar" class="btn secondary">🚀 Publicar música</a>
-  </div>
-</section>
-
-<main class="container">
-
-  <div class="search">
-    <input
-      type="search"
-      id="search"
-      placeholder="🔎 Procurar artista ou música..."
-      onkeyup="procurar()">
-  </div>
-
-  <div class="section-title" id="musicas">
-    <h2>🔥 Músicas em destaque</h2>
-    <a href="#">Ver todas</a>
-  </div>
-
-  <div class="music-grid" id="musicList">
-
-    <div class="card">
-      <div class="cover">🎵</div>
-      <h3>Minha História</h3>
-      <p>Remigio JR</p>
-      <button class="play" onclick="tocar(this)">▶ Ouvir</button>
-    </div>
-
-    <div class="card">
-      <div class="cover">🎧</div>
-      <h3>Saudade</h3>
-      <p>Artista Moçambicano</p>
-      <button class="play" onclick="tocar(this)">▶ Ouvir</button>
-    </div>
-
-    <div class="card">
-      <div class="cover">🎶</div>
-      <h3>Poder do Metical</h3>
-      <p>Anicleto Anelce & Regino</p>
-      <button class="play" onclick="tocar(this)">▶ Ouvir</button>
-    </div>
-
-  </div>
-
-  <div class="section-title" id="artistas">
-    <h2>⭐ Artistas</h2>
-    <a href="#">Ver todos</a>
-  </div>
-
-  <div class="artist-grid">
-
-    <div class="artist">
-      <div class="artist-photo">🎤</div>
-      <h3>Remigio JR</h3>
-      <p>Artista</p>
-    </div>
-
-    <div class="artist">
-      <div class="artist-photo">🎤</div>
-      <h3>Anicleto Anelce</h3>
-      <p>Artista</p>
-    </div>
-
-    <div class="artist">
-      <div class="artist-photo">🎤</div>
-      <h3>Regino</h3>
-      <p>Artista</p>
-    </div>
-
-  </div>
-
-  <section class="upload" id="publicar">
-    <h2>🎤 Publica a tua música</h2>
-
-    <p>
-      És artista moçambicano?
-      A MozMusic foi criada para dar espaço à tua música.
-    </p>
-
-    <button class="btn primary" onclick="publicar()">
-      + Publicar música
-    </button>
-  </section>
-
-</main>
-
-<footer>
-  <p>
-    © 2026 <strong>MozMusic</strong> —
-    Plataforma para artistas moçambicanos 🇲🇿
-  </p>
-</footer>
-
-<script>
-
-function tocar(botao) {
-
-  if (botao.innerText.includes("▶")) {
-    botao.innerText = "⏸ A tocar...";
-  } else {
-    botao.innerText = "▶ Ouvir";
-  }
-}
-
-function publicar() {
-  alert(
-    "A área de publicação da MozMusic está a ser preparada. Em breve os artistas poderão enviar as suas músicas."
-  );
-}
-
-function procurar() {
-
-  const texto =
-    document.getElementById("search").value.toLowerCase();
-
-  const cards =
-    document.querySelectorAll(".music-grid .card");
-
-  cards.forEach(function(card) {
-
-    const conteudo =
-      card.innerText.toLowerCase();
-
-    if (conteudo.includes(texto)) {
-      card.style.display = "";
-    } else {
-      card.style.display = "none";
-    }
-
-  });
-}
-
-</script>
-
-</body>
-  </html>
+.card h3{
